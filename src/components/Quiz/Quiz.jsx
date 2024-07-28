@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import {useState} from 'react';
-import { resultInitialState } from './questions';
+import { resultInitialState } from '../questions';
+import "./Quiz.scss"
+
 const Quiz = ({questions}) =>{
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [answerIdx, setAnswerIdx ] = useState(null)
