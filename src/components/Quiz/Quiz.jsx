@@ -29,7 +29,7 @@ const Quiz = ({ questions }) => {
       finalAnswer
         ? {
             ...prev,
-            score: prev.score + 5,
+            score: prev.score + 10,
             correctAnswers: prev.correctAnswers + 1,
           }
         : {
@@ -60,7 +60,7 @@ const Quiz = ({ questions }) => {
     <div className="quiz-container">
       {!showResult ? (
         <>
-          {showAnswerTimer && (<Timer duration={3} onTimeUp={handleTimer}/>)}
+          {showAnswerTimer && (<Timer duration={100} onTimeUp={handleTimer}/>)}
           <span className="active-question-no">{currentQuestion + 1}</span>
           <span className="total-question">/{questions.length}</span>
           <h2>{question}</h2>

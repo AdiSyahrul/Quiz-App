@@ -12,7 +12,7 @@ function Timer({ duration, onTimeUp }) {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCounter((cur) => cur + 1);
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(intervalRef.current);
   }, []);
@@ -21,9 +21,9 @@ function Timer({ duration, onTimeUp }) {
     setProgressLoad(100 * (counter / duration));
     if (counter === duration) {
       clearInterval(intervalRef.current);
-      setTimeout(() => {
-        onTimeUp();
-      }, 1000);
+      onTimeUp();
+    //   setTimeout(() => {
+    //   }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter]);
