@@ -1,11 +1,16 @@
 @import "../../styles/vars.scss";
 
 .answer-timer-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  border-bottom: 1px solid $disabled;
+  .time-remaining {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: $primary;
+  }
   .progress {
     height: 5px;
     transition-duration: 0.1s;
@@ -13,3 +18,4 @@
     transition-timing-function: linear;
   }
 }
+

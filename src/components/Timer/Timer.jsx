@@ -1,35 +1,37 @@
-/* eslint-disable no-unused-vars */
-import PropTypes from "prop-types";
+/* eslint-disable react/prop-types */
 import "./Timer.scss";
 import { useEffect, useState, useRef } from "react";
 
-// eslint-disable-next-line react/prop-types
 function Timer({ duration, onTimeUp }) {
   const [counter, setCounter] = useState(0);
-  const [progressLoad, setProgressLoad] = useState(0);
   const intervalRef = useRef();
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCounter((cur) => cur + 1);
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(intervalRef.current);
   }, []);
 
   useEffect(() => {
-    setProgressLoad(100 * (counter / duration));
-    if (counter === duration) {
+    if (counter >= duration) {
       clearInterval(intervalRef.current);
       onTimeUp();
-    //   setTimeout(() => {
-    //   }, 1000);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [counter]);
+  }, [counter, duration, onTimeUp]);
+
+  const remainingTime = Math.max(duration - counter, 0);
+  const minutes = Math.floor(remainingTime / 60);
+  const seconds = remainingTime % 60;
+
+  const progressLoad = 100 * (counter / duration);
 
   return (
     <div className="answer-timer-container">
+      <div className="time-remaining">
+        {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+      </div>
       <div
         style={{
           width: `${progressLoad}%`,
@@ -46,9 +48,5 @@ function Timer({ duration, onTimeUp }) {
     </div>
   );
 }
-// Timer.propTypes = {
-//     duration: PropTypes.number.isRequired,
-//     onTimeUp: PropTypes.func.isRequired
-// };
 
 export default Timer;

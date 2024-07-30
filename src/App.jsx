@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Quiz from "./components/Quiz/Quiz";
 import SignUp from "./components/Login/Login";
@@ -36,10 +38,10 @@ function App() {
     const decodedString = parser.parseFromString(text, 'text/html').body.textContent || "";
     return decodedString;
   }
-  return (<div>
-    <SignUp/>
-  </div>)
-  // return questions.length ? <Quiz questions={questions} /> : null;
+  // return (<div>
+  //   <SignUp/>
+  // </div>)
+  return questions.length ? <Quiz questions={questions} /> : null;
 }
 
 export default App;
