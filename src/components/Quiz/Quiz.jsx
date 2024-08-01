@@ -12,8 +12,10 @@ const Quiz = ({ questions }) => {
   const [result, setResult] = useState(resultInitialState);
   const [showResult, setShowResult] = useState(false);
   const [totalTimeExpired, setTotalTimeExpired] = useState(false);
-  const totalDuration = 3;
-
+  const totalDuration = 3 * 60;
+  if (!questions || questions.length === 0) {
+    return <div>Loading...</div>;
+  }
   const { question, choices, correctAnswer } = questions[currentQuestion];
 
   const onAnswerClick = (answer, index) => {

@@ -1,58 +1,54 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
-import { useState } from "react";
-const SignUp = () => {
-  const [action, setAction] = useState("Login");
+
+const Login = ({ onLogin }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    console.log("Login function called"); 
+    if (username === "admin" && password === "admin") {
+      onLogin(true);
+    } else {
+      alert("Invalid username or password");
+    }
+  };
 
   return (
     <div className="login-container">
       <div className="header">
-        <div className="text">{action}</div>
+        <div className="text">Login</div>
         <div className="underline"></div>
       </div>
       <div className="inputs">
-        {action === "Login" ? (
-          <div></div>
-        ) : (
-          <div className="content">
-            <img src="src\assets\react.svg" alt="" />
-            <input type="text" placeholder="Name" />
-          </div>
-        )}
-
         <div className="content">
-          <img src="src\assets\react.svg" alt="" />
-          <input type="email" placeholder="Email" />
+          <img src="src/assets/react.svg" alt="" />
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
         <div className="content">
-          <img src="src\assets\react.svg" alt="" />
-          <input type="password" placeholder="Password" />
+          <img src="src/assets/react.svg" alt="" />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
       </div>
-      {action === 'SignUp' ? <div></div> : <div className="forgot-password">
-        Forgot Password?<span> Reset</span>
-      </div>}
-      
       <div className="submit-container">
-        <div
-          className={action === "Login" ? "submit gray" : "submit"}
-          onClick={() => {
-            setAction("SignUp");
-          }}
-        >
-          Sign Up
-        </div>
-        <div
-          className={action === "SignUp" ? "submit gray" : "submit"}
-          onClick={() => {
-            setAction("Login");
-          }}
-        >
+        <div className="submit" onClick={handleLogin}>
           Login
         </div>
       </div>
     </div>
   );
 };
-export default SignUp;
+
+export default Login;
