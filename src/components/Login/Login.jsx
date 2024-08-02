@@ -8,7 +8,6 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    console.log("Login function called"); 
     if (username === "admin" && password === "admin") {
       onLogin(true);
     } else {
@@ -20,11 +19,10 @@ const Login = ({ onLogin }) => {
     <div className="login-container">
       <div className="header">
         <div className="text">Login</div>
-        <div className="underline"></div>
       </div>
       <div className="inputs">
         <div className="content">
-          <img src="src/assets/react.svg" alt="" />
+          <img src="src/assets/username.png" alt="" />
           <input
             type="text"
             placeholder="Username"
@@ -33,7 +31,7 @@ const Login = ({ onLogin }) => {
           />
         </div>
         <div className="content">
-          <img src="src/assets/react.svg" alt="" />
+          <img src="src/assets/key.png" alt="" />
           <input
             type="password"
             placeholder="Password"
