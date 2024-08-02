@@ -29,7 +29,7 @@ To run this application locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/quiz-app.git
+   git clone https://github.com/AdiSyahrul/Quiz-App.git
    cd quiz-app
 
 2. **Install dependencies:**
