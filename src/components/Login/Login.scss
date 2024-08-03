@@ -1,78 +1,124 @@
 @import '../../styles/vars.scss';
 
-.login-container {
+.page-container {
     display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 100px;
-    background: $bg;
-    padding: 30px 60px;
-    width: 300px;
-    border-radius: 4px; 
+    height: 100vh;
 
-    .header {
+    .banner {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 5px;
-        width: 100%;
-        margin-top: 20px;
-
-        .text {
-            color: $primary;
-            font-size: 32px; 
-            font-weight: 500; 
+    
+        h1 {
+            font-size: 3em;
+            color: $bg;
+        }
+    
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: $bg;
+        }
+    
+        .footer-text {
+            margin-top: 20px;
+            font-size: 1em;
+            background-color: $primary;
+            color: $accent;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
         }
     }
-
-    .inputs {
-        margin-top: 30px; 
-        display: flex;
-        flex-direction: column;
-        gap: 20px; 
-
-        .content {
-            display: flex;
-            align-items: center;
-            margin: auto;
-            width: 100%; 
-            height: 50px; 
-            background: $bg-accent;
-            border-radius: 4px;
-
-            img {
-                margin: 0 10px;
-                width: 20px; 
-                height: 20px; 
-            }
-            input {
-                width: calc(100% - 40px);
-                background: transparent;
-                border: none;
-                outline: none;
-                color: $foreground; 
-                font-size: 16px; 
-                padding: 5px;
-            }
-        }
-    }
-
-    .submit-container {
+    
+    .login-side {
+        flex: 1;
         display: flex;
         justify-content: center;
-        margin: 30px auto;
-        .submit {
+        align-items: center;
+        margin-top: 50px;
+        .login-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 150px; 
-            height: 40px; 
-            color: $bg;
-            background: $primary;
-            border-radius: 20px;
-            font-size: 16px; 
-            font-weight: 500;
-            cursor: pointer;
+            flex-direction: column;
+            margin: auto;
+            background: $bg;
+            padding: 30px 60px;
+            width: 300px;
+            border-radius: 4px;
+        
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                width: 100%;
+                margin-top: 20px;
+        
+                .text {
+                    color: $primary;
+                    font-size: 32px;
+                    font-weight: 500;
+                }
+            }
+        
+            .inputs {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+        
+                .content {
+                    display: flex;
+                    align-items: center;
+                    margin: auto;
+                    width: 100%;
+                    height: 50px;
+                    background: $bg-accent;
+                    border-radius: 4px;
+        
+                    img {
+                        margin: 0 10px;
+                        width: 20px;
+                        height: 20px;
+                    }
+        
+                    input {
+                        width: calc(100% - 40px);
+                        background: transparent;
+                        border: none;
+                        outline: none;
+                        color: $foreground;
+                        font-size: 16px;
+                        padding: 5px;
+                    }
+                }
+            }
+        
+            .submit-container {
+                display: flex;
+                justify-content: center;
+                margin: 30px auto;
+        
+                .submit {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 150px;
+                    height: 40px;
+                    color: $bg;
+                    background: $primary;
+                    border-radius: 20px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
+
+
